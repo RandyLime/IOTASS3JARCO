@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .button-reset {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #f44336;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .button-reset:hover {
+            background-color: #e53935;
+        }
+    </style>
+    <script>
+        // Reload the page every 5 seconds
+        setInterval(function () {
+            location.reload();
+        }, 5000);
+    </script>
+</head>
+
+<body>
+    <h1>Sensor Data</h1>
+    <!-- Pot A -->
+    <table>
+        <caption>Pot A</caption>
+        <thead>
+            <tr>
+                <th>Pot Name</th>
+                <th>Pot ID</th>
+                <th>Temperature (&deg;C)</th>
+                <th>Humidity (%)</th>
+                <th>Light Intensity</th>
+                <th>Moisture Level (%)</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            {% if row[1] == "A" %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Servo Controls for Pot A</h3>
+    <button class="button" onclick="location.href='/Aaction1'">Water Pump and Fan (90)</button>
+    <button class="button" onclick="location.href='/Aaction2'">Fan only (45)</button>
+    <button class="button" onclick="location.href='/Aaction3'">Water Pump only (180)</button>
+    <button class="button" onclick="location.href='/Aaction4'">Both Off (0)</button>
+
+    <h3>LED Controls</h3>
+    <button class="button" onclick="location.href='/Aledgreen'">Green</button>
+    <button class="button" onclick="location.href='/Aledyellow'">Yellow</button>
+    <button class="button" onclick="location.href='/Aledred'">Red</button>
+
+    <br>
+
+    <button class="button-reset" onclick="location.href='/Areset'">Reset</button>
+
+    <!-- Pot J -->
+    <table>
+        <caption>Pot J</caption>
+        <thead>
+            <tr>
+                <th>Pot Name</th>
+                <th>Pot ID</th>
+                <th>Temperature (&deg;C)</th>
+                <th>Humidity (%)</th>
+                <th>Light Intensity</th>
+                <th>Moisture Level (%)</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            {% if row[1] == "J" %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Servo Controls for Pot J</h3>
+    <button class="button" onclick="location.href='/Jaction1'">Water Pump and Fan (90)</button>
+    <button class="button" onclick="location.href='/Jaction2'">Fan only (45)</button>
+    <button class="button" onclick="location.href='/Jaction3'">Water Pump only (180)</button>
+    <button class="button" onclick="location.href='/Jaction4'">Both Off (0)</button>
+
+    <h3>LED Controls</h3>
+    <button class="button" onclick="location.href='/Jledgreen'">Green</button>
+    <button class="button" onclick="location.href='/Jledyellow'">Yellow</button>
+    <button class="button" onclick="location.href='/Jledred'">Red</button>
+
+    <br>
+
+    <button class="button-reset" onclick="location.href='/Jreset'">Reset</button>
+
+    <!-- Pot R -->
+    <table>
+        <caption>Pot R</caption>
+        <thead>
+            <tr>
+                <th>Pot Name</th>
+                <th>Pot ID</th>
+                <th>Temperature (&deg;C)</th>
+                <th>Humidity (%)</th>
+                <th>Light Intensity</th>
+                <th>Moisture Level (%)</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            {% if row[1] == "R" %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Servo Controls for Pot R</h3>
+    <button class="button" onclick="location.href='/Raction1'">Water Pump and Fan (90)</button>
+    <button class="button" onclick="location.href='/Raction2'">Fan only (45)</button>
+    <button class="button" onclick="location.href='/Raction3'">Water Pump only (180)</button>
+    <button class="button" onclick="location.href='/Raction4'">Both Off (0)</button>
+
+    <h3>LED Controls</h3>
+    <button class="button" onclick="location.href='/Rledgreen'">Green</button>
+    <button class="button" onclick="location.href='/Rledyellow'">Yellow</button>
+    <button class="button" onclick="location.href='/Rledred'">Red</button>
+
+    <br>
+
+    <button class="button-reset" onclick="location.href='/Rreset'">Reset</button>
+</body>
+
+</html>
