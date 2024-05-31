@@ -60,8 +60,6 @@ void loop() {
     // Light Sensor Module
     int lightReading = analogRead(ldr_pin);
 
-    // Traffic light status
-    int warnings = 0;
 
     // Print readings
     Serial.print(humidity);
